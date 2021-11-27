@@ -5,16 +5,15 @@ import { useState, useEffect } from 'react';
 
 export default function Home() { 
 const [text, setText] = useState("");
-//const [qname, setQname] = useState("qcode name")
 const [image, setImage] = useState();
 
 
 const onButtonClick = ()=>{
   
-    axios.get(`http://api.qrserver.com/v1/create-qr-code`, {data: text, size:'100x100s'})
+    axios.get('http://localhost:8080/api.qrserver.com/v1/create-qr-code' , {data: text, size:'100x100s'})
       .then((res)=>{
-     
-       setImage()
+    
+       setImage(res.data)
       })
     
 }
